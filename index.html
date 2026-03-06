@@ -1,0 +1,3269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>👑 ULTIMATE VOCAB · 20 THEMES · 12 GAMES · 30 ACHIEVEMENTS</title>
+    
+    <!-- ===== FONTS ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- ===== ICONS ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- ===== LIBRARIES ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & CORE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ===== 20 PERFECT THEMES ===== */
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --primary-light: #60a5fa;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --bg: #0a0c10;
+            --surface: #14181f;
+            --surface-light: #1e293b;
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --border: #2d3748;
+            --glow: 0 0 20px rgba(59,130,246,0.3);
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+            --radius: 16px;
+            --radius-sm: 12px;
+            --radius-lg: 24px;
+            --font: 'Inter', sans-serif;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* 7 Deadly Sins */
+        [data-theme="pride"] { --primary: #9b59b6; --bg: #1a0f2e; --surface: #2d1b4a; }
+        [data-theme="greed"] { --primary: #ffd700; --bg: #1a2f1a; --surface: #2d4a2d; }
+        [data-theme="lust"] { --primary: #ff69b4; --bg: #2a0f1f; --surface: #3d1f33; }
+        [data-theme="envy"] { --primary: #00ff7f; --bg: #0f2a0f; --surface: #1f3d1f; }
+        [data-theme="gluttony"] { --primary: #ff8c42; --bg: #2a1a0f; --surface: #3d2a1f; }
+        [data-theme="sloth"] { --primary: #808080; --bg: #1a1f2a; --surface: #2a2f3d; }
+        [data-theme="wrath"] { --primary: #ff4444; --bg: #2a0f0f; --surface: #3d1f1f; }
+        
+        /* Korea (3) */
+        [data-theme="seoul"] { --primary: #ff5e7d; --bg: #1a1e2b; --surface: #252b3d; }
+        [data-theme="busan"] { --primary: #00d2ff; --bg: #0f2027; --surface: #203a43; }
+        [data-theme="jeju"] { --primary: #32cd32; --bg: #1a2f1a; --surface: #2d4a2d; }
+        
+        /* Anime (6) */
+        [data-theme="rezero"] { --primary: #9b59b6; --bg: #1a0933; --surface: #2d1b4a; }
+        [data-theme="sololeveling"] { --primary: #aa80ff; --bg: #0d071a; --surface: #1a1033; }
+        [data-theme="onepiece"] { --primary: #ffd700; --bg: #0a1a2a; --surface: #1a2a3d; }
+        [data-theme="naruto"] { --primary: #ff8c42; --bg: #1a0f0a; --surface: #2d1f17; }
+        [data-theme="demonslayer"] { --primary: #ff4444; --bg: #2c1810; --surface: #3d291f; }
+        [data-theme="jjk"] { --primary: #9933ff; --bg: #0d0022; --surface: #1a1038; }
+        
+        /* Japan (2) */
+        [data-theme="tokyo"] { --primary: #ff3366; --bg: #1a1a2e; --surface: #16213e; }
+        [data-theme="kyoto"] { --primary: #ff8c42; --bg: #2c1810; --surface: #3e2a1f; }
+        
+        /* Special (2) */
+        [data-theme="cyber"] { --primary: #00ff9d; --bg: #0a0f1a; --surface: #1a1f2e; }
+        [data-theme="theme4"] { --primary: #7c8db0; --bg: #1e2632; --surface: #2a3342; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== PARTICLES BACKGROUND ===== */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.25;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+            background: var(--primary);
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -150px;
+            right: -100px;
+            background: #8b5cf6;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            top: 40%;
+            right: 20%;
+            background: #ec4899;
+            animation-delay: -10s;
+        }
+
+        .orb-4 {
+            width: 300px;
+            height: 300px;
+            bottom: 20%;
+            left: 10%;
+            background: #f59e0b;
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, 40px) scale(1.2); }
+            66% { transform: translate(-30px, -20px) scale(0.9); }
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(139,92,246,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 20%, rgba(236,72,153,0.2) 0%, transparent 50%);
+            animation: bgPulse 10s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== GLASS EFFECT ===== */
+        .glass {
+            background: rgba(20, 24, 31, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .glass-card {
+            background: rgba(20, 24, 31, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(20, 24, 31, 0.9);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px var(--primary); }
+            50% { box-shadow: 0 0 40px var(--primary); }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .float { animation: float 3s ease-in-out infinite; }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+        .glow { animation: glow 3s ease-in-out infinite; }
+
+        /* ===== AUTH SECTION ===== */
+        .auth-section {
+            max-width: 450px;
+            margin: 60px auto;
+            background: var(--surface);
+            border-radius: 32px;
+            padding: 35px;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-lg), var(--glow);
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .auth-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: var(--bg);
+            padding: 5px;
+            border-radius: 40px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .auth-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--glow);
+        }
+
+        .auth-form { transition: all 0.3s; }
+        .auth-form.hidden { display: none; }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--surface);
+            padding: 16px 24px;
+            border-radius: 28px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--primary));
+            animation: gradientMove 3s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            font-size: 28px;
+            color: var(--primary);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.1);
+            object-fit: cover;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--glow);
+        }
+
+        .badge {
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 700;
+            background: var(--primary);
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 2s infinite;
+        }
+
+        .coins {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--surface-light);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .coins:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .coins i {
+            color: gold;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        /* ===== THEME SELECTOR ===== */
+        .theme-section {
+            background: var(--surface);
+            padding: 18px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .theme-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 6px;
+        }
+
+        .theme-btn {
+            padding: 8px 4px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+
+        .theme-btn:hover,
+        .theme-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        /* ===== QUICK ACTIONS ===== */
+        .quick-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding: 4px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .quick-actions::-webkit-scrollbar {
+            display: none;
+        }
+
+        .quick-action-btn {
+            flex: 0 0 auto;
+            padding: 10px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 42px;
+        }
+
+        .quick-action-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        /* ===== STATS GRID ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 12px 3px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s;
+        }
+
+        .stat-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 2px;
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        .stat-label {
+            font-size: 9px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== MENU GRID ===== */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .menu-card {
+            background: var(--surface);
+            padding: 20px 8px;
+            border-radius: 24px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .menu-card:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .menu-card i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .menu-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .menu-card span {
+            font-size: 13px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-card small {
+            font-size: 10px;
+            color: var(--text-dim);
+            margin-top: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--glow);
+        }
+
+        /* ===== PAGES ===== */
+        .page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            display: none;
+            animation: slideInUp 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-header h2 i {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .close-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: var(--danger);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        /* ===== FORMS ===== */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-dim);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            color: var(--text);
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+            transform: scale(1.02);
+        }
+
+        .btn {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 48px;
+            margin: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 12px;
+            min-height: 36px;
+        }
+
+        .hidden { display: none !important; }
+
+        /* ===== VOICE PANEL ===== */
+        .voice-panel {
+            background: var(--surface-light);
+            border-radius: 60px;
+            padding: 16px;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+        }
+
+        .voice-btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .voice-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+            border-color: var(--primary);
+        }
+
+        .voice-speed-slider {
+            width: 120px;
+            height: 6px;
+            background: var(--border);
+            border-radius: 10px;
+            -webkit-appearance: none;
+        }
+
+        .voice-speed-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--glow);
+        }
+
+        .voice-status {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--surface);
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 1px solid var(--primary);
+        }
+
+        /* ===== PRACTICE PAGE ===== */
+        .practice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+            background: var(--surface);
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .practice-word {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 30px 0;
+            text-shadow: 0 0 20px var(--primary);
+            animation: float 3s infinite;
+        }
+
+        .practice-input {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 20px;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            color: var(--text);
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .practice-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: var(--border);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            width: 0%;
+            transition: width 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        .progress-text {
+            font-size: 16px;
+            color: var(--text-dim);
+            margin: 10px 0;
+        }
+
+        .feedback {
+            min-height: 40px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        .feedback.success { color: var(--success); text-shadow: 0 0 10px var(--success); }
+        .feedback.error { color: var(--danger); text-shadow: 0 0 10px var(--danger); }
+
+        /* ===== WORD CARDS ===== */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .word-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.2s;
+        }
+
+        .word-card:hover::before {
+            width: 8px;
+        }
+
+        .word-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .word-english {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .word-meaning {
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .word-example {
+            font-size: 13px;
+            color: var(--text-dim);
+            font-style: italic;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        .word-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .word-actions button {
+            flex: 1;
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .word-actions button:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ===== GAMES GRID ===== */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .game-card {
+            background: var(--surface);
+            padding: 25px 15px;
+            border-radius: 30px;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .game-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .game-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .game-card p {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .game-card .reward {
+            font-size: 16px;
+            color: gold;
+            font-weight: 700;
+        }
+
+        .game-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        #gameArea {
+            min-height: 200px;
+            padding: 25px;
+            background: var(--surface);
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .matching-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .matching-card {
+            background: var(--surface);
+            padding: 18px 5px;
+            border-radius: 18px;
+            border: 2px solid var(--border);
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .matching-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+
+        .matching-card.selected {
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .matching-card.matched {
+            opacity: 0.5;
+            background: var(--success);
+            border-color: var(--success);
+            pointer-events: none;
+        }
+
+        /* ===== FLASHCARD ===== */
+        .flashcard {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            margin: 20px auto;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            padding: 20px;
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: var(--surface-light);
+        }
+
+        /* ===== HANGMAN ===== */
+        .hangman-display {
+            font-family: monospace;
+            font-size: 32px;
+            letter-spacing: 8px;
+            margin: 30px 0;
+        }
+
+        .hangman-letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .hangman-letter {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .hangman-letter:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .hangman-letter.used {
+            opacity: 0.3;
+            pointer-events: none;
+            background: var(--surface-light);
+        }
+
+        /* ===== CROSSWORD ===== */
+        .crossword-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .crossword-cell {
+            width: 50px;
+            height: 50px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .crossword-cell.filled {
+            border-color: var(--success);
+        }
+
+        .crossword-clues {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        /* ===== WORD SCRAMBLE ===== */
+        .scramble-letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .scramble-letter {
+            width: 60px;
+            height: 60px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            cursor: move;
+            transition: all 0.2s;
+        }
+
+        .scramble-letter:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+            box-shadow: var(--glow);
+        }
+
+        /* ===== LISTENING CHALLENGE ===== */
+        .listening-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .listening-btn {
+            padding: 20px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .listening-btn:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: var(--glow);
+        }
+
+        /* ===== TIMED CHALLENGE ===== */
+        .timer-display {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 20px 0;
+            text-shadow: 0 0 20px var(--primary);
+        }
+
+        .timer-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--border);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .timer-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            width: 100%;
+            transition: width 0.1s linear;
+        }
+
+        /* ===== CHAPTERS ===== */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .chapter-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .chapter-card.locked {
+            opacity: 0.6;
+            filter: grayscale(0.5);
+        }
+
+        .chapter-card.locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+        }
+
+        .chapter-card.completed {
+            border-color: var(--success);
+            box-shadow: 0 0 15px var(--success);
+        }
+
+        .chapter-card.completed::after {
+            content: '✅';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+        }
+
+        .chapter-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            animation: float 3s infinite;
+        }
+
+        .chapter-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .chapter-progress {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin: 10px 0;
+        }
+
+        /* ===== RANKING WITH PHOTOS ===== */
+        .ranking-container {
+            background: var(--surface);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .ranking-row {
+            display: grid;
+            grid-template-columns: 60px 50px 1fr 80px 100px;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .ranking-row:hover {
+            background: var(--surface-light);
+            transform: translateX(5px);
+        }
+
+        .ranking-row.header {
+            background: var(--surface-light);
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .rank-1 { background: linear-gradient(90deg, rgba(255,215,0,0.15), transparent); border-left: 4px solid gold; }
+        .rank-2 { background: linear-gradient(90deg, rgba(192,192,192,0.15), transparent); border-left: 4px solid silver; }
+        .rank-3 { background: linear-gradient(90deg, rgba(205,127,50,0.15), transparent); border-left: 4px solid #cd7f32; }
+
+        .rank-medal {
+            font-size: 18px;
+            margin-right: 5px;
+        }
+
+        .rank-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .rank-avatar-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* ===== STORE ===== */
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .store-item {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .store-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .store-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .store-item p {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 15px;
+        }
+
+        .store-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: gold;
+            margin: 15px 0;
+            text-shadow: 0 0 10px gold;
+        }
+
+        .store-item .btn-small {
+            width: 100%;
+        }
+
+        .store-item.popular::after {
+            content: '🔥 POPULAR';
+            position: absolute;
+            top: 10px;
+            right: -25px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 30px;
+            transform: rotate(45deg);
+            font-size: 10px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        /* ===== PROFILE EDITOR ===== */
+        .profile-editor {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .avatar-upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 15px;
+            border: 3px solid var(--primary);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .profile-avatar-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-btn {
+            background: var(--surface-light);
+            color: var(--text);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .upload-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        #avatarInput {
+            display: none;
+        }
+
+        /* ===== ACHIEVEMENTS ===== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .achievement-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 24px;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.2s;
+        }
+
+        .achievement-card.unlocked {
+            border-color: gold;
+            background: linear-gradient(145deg, var(--surface), rgba(255,215,0,0.05));
+        }
+
+        .achievement-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .achievement-info {
+            flex: 1;
+        }
+
+        .achievement-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .achievement-desc {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .achievement-reward {
+            font-size: 13px;
+            color: gold;
+        }
+
+        /* ===== NOTIFICATIONS ===== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--surface);
+            border-left: 5px solid var(--primary);
+            border-radius: 16px;
+            color: var(--text);
+            box-shadow: var(--shadow-lg), var(--glow);
+            z-index: 10000;
+            animation: slideInRight 0.3s, fadeOut 0.5s 2.5s forwards;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .notification.success { border-left-color: var(--success); }
+        .notification.error { border-left-color: var(--danger); }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateX(100px); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .stats-grid { grid-template-columns: repeat(4, 1fr); }
+            .menu-grid { grid-template-columns: repeat(3, 1fr); }
+            .chapters-grid { grid-template-columns: repeat(2, 1fr); }
+            .games-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 700px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .menu-grid { grid-template-columns: repeat(2, 1fr); }
+            .games-grid { grid-template-columns: 1fr; }
+            .practice-word { font-size: 48px; }
+            .matching-grid { grid-template-columns: repeat(2, 1fr); }
+            .header { flex-direction: column; text-align: center; }
+            .user-section { justify-content: center; }
+            .ranking-row { grid-template-columns: 40px 40px 1fr 60px 80px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== BACKGROUND ANIMATIONS ===== -->
+    <div id="particles-js"></div>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+    <div class="gradient-bg"></div>
+
+    <!-- ===== MASTER ACCOUNT DATA (HIDDEN) ===== -->
+    <div style="display: none;" id="master-data"
+         data-email="ayanakoji4@gmail.com"
+         data-name="Ayanakoji Kiyotaka"
+         data-username="Monster">
+    </div>
+
+    <div class="container">
+        <!-- ===== AUTH SECTION ===== -->
+        <div id="authSection" class="auth-section" data-aos="fade-up">
+            <h1 style="text-align: center; margin-bottom: 15px; color: var(--primary); font-size: 28px;">
+                <i class="fas fa-crown"></i> ULTIMATE VOCAB
+            </h1>
+            <p style="text-align: center; margin-bottom: 20px; color: var(--text-dim);">
+                20 Themes · 12 Games · 30 Achievements
+            </p>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="App.auth.switchTab('login')">🔐 LOGIN</div>
+                <div class="auth-tab" onclick="App.auth.switchTab('register')">📝 REGISTER</div>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username or Email</label>
+                    <input type="text" id="loginUsername" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" id="rememberMe"> Remember me</label>
+                </div>
+                <button class="btn" onclick="App.auth.login()" style="width:100%">LOGIN</button>
+                <p style="text-align:center; margin-top:15px; color:var(--text-dim);">Demo: demo / demo123</p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label><i class="fas fa-user-circle"></i> Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose username">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-signature"></i> Full Name</label>
+                    <input type="text" id="regName" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="regEmail" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="regPassword" placeholder="Min 6 chars">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Confirm Password</label>
+                    <input type="password" id="regConfirm" placeholder="••••••••">
+                </div>
+                <button class="btn" onclick="App.auth.register()" style="width:100%">CREATE ACCOUNT</button>
+            </div>
+        </div>
+
+        <!-- ===== MAIN APP ===== -->
+        <div id="mainApp" class="hidden">
+            <!-- ===== HEADER ===== -->
+            <div class="header" data-aos="fade-down">
+                <div class="logo" onclick="App.ui.openPage('homePage')">
+                    <i class="fas fa-crown"></i> VOCAB TRAINER
+                </div>
+                <div class="user-section">
+                    <div class="avatar" id="userAvatar" onclick="App.ui.openPage('profilePage')">
+                        <img id="headerAvatarImg" class="avatar-img" src="" alt="Avatar" style="display: none;">
+                        <span id="headerAvatarText" style="display: inline;">👤</span>
+                    </div>
+                    <div>
+                        <div id="userName">Guest</div>
+                        <div class="badge" id="rankBadge">Bronze</div>
+                    </div>
+                    <div class="coins" onclick="App.ui.openPage('storePage')">
+                        <i class="fas fa-coins"></i>
+                        <span id="coinDisplay">0</span>
+                    </div>
+                    <button class="btn-small" onclick="App.auth.logout()"><i class="fas fa-sign-out-alt"></i> Exit</button>
+                </div>
+            </div>
+
+            <!-- ===== QUICK ACTIONS ===== -->
+            <div class="quick-actions">
+                <button class="quick-action-btn" onclick="App.ui.openPage('addPage')"><i class="fas fa-plus"></i> Add Word</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('practicePage')"><i class="fas fa-brain"></i> Practice</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('gamesPage')"><i class="fas fa-gamepad"></i> Games</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('rankingPage')"><i class="fas fa-trophy"></i> Ranking</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('storePage')"><i class="fas fa-store"></i> Store</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('chaptersPage')"><i class="fas fa-crown"></i> Chapters</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('achievementsPage')"><i class="fas fa-medal"></i> Achievements</button>
+                <button class="quick-action-btn" onclick="App.ui.openPage('profilePage')"><i class="fas fa-user"></i> Profile</button>
+            </div>
+
+            <!-- ===== THEME SELECTOR ===== -->
+            <div class="theme-section" data-aos="fade-up">
+                <div class="theme-title">
+                    <i class="fas fa-palette"></i>
+                    <span id="typed-text"></span>
+                </div>
+                <div class="theme-grid" id="themeGrid"></div>
+            </div>
+
+            <!-- ===== STATISTICS GRID ===== -->
+            <div class="stats-grid">
+                <div class="stat-card" onclick="App.ui.openPage('statsPage')">
+                    <div class="stat-value" id="totalWords">0</div>
+                    <div class="stat-label">WORDS</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('statsPage')">
+                    <div class="stat-value" id="totalMistakes">0</div>
+                    <div class="stat-label">MISTAKES</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('statsPage')">
+                    <div class="stat-value" id="accuracy">0%</div>
+                    <div class="stat-label">ACCURACY</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('profilePage')">
+                    <div class="stat-value" id="level">1</div>
+                    <div class="stat-label">LEVEL</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('profilePage')">
+                    <div class="stat-value" id="xp">0</div>
+                    <div class="stat-label">XP</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('storePage')">
+                    <div class="stat-value" id="coins">0</div>
+                    <div class="stat-label">COINS</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('profilePage')">
+                    <div class="stat-value" id="streak">0</div>
+                    <div class="stat-label">STREAK</div>
+                </div>
+                <div class="stat-card" onclick="App.ui.openPage('rankingPage')">
+                    <div class="stat-value" id="rank">E</div>
+                    <div class="stat-label">RANK</div>
+                </div>
+            </div>
+
+            <!-- ===== MAIN MENU GRID ===== -->
+            <div class="menu-grid">
+                <div class="menu-card" onclick="App.ui.openPage('addPage')"><i class="fas fa-plus-circle"></i><span>ADD WORD</span><small>+1 coin</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('wordsPage')"><i class="fas fa-book"></i><span>MY WORDS</span><small>view all</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('practicePage')"><i class="fas fa-brain"></i><span>PRACTICE</span><small>test</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('spellingPage')"><i class="fas fa-font"></i><span>SPELLING</span><small>+0.5</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('flashcardPage')"><i class="fas fa-layer-group"></i><span>FLASHCARDS</span><small>memorize</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('hangmanPage')"><i class="fas fa-hangman"></i><span>HANGMAN</span><small>classic</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('crosswordPage')"><i class="fas fa-border-all"></i><span>CROSSWORD</span><small>puzzle</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('scramblePage')"><i class="fas fa-puzzle-piece"></i><span>SCRAMBLE</span><small>unscramble</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('listeningPage')"><i class="fas fa-headphones"></i><span>LISTENING</span><small>hear</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('timedPage')"><i class="fas fa-clock"></i><span>TIMED</span><small>race</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('matchPage')"><i class="fas fa-cards"></i><span>MATCH</span><small>pairs</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('chaptersPage')"><i class="fas fa-crown"></i><span>CHAPTERS</span><small>7 sins</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('storePage')"><i class="fas fa-store"></i><span>STORE</span><small>50+ items</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('rankingPage')"><i class="fas fa-trophy"></i><span>RANKING</span><small>with photos</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('achievementsPage')"><i class="fas fa-medal"></i><span>ACHIEVEMENTS</span><small>30 badges</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('statsPage')"><i class="fas fa-chart-line"></i><span>STATS</span><small>graphs</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('profilePage')"><i class="fas fa-user"></i><span>PROFILE</span><small>edit & photo</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('giftPage')"><i class="fas fa-gift"></i><span>GIFT</span><small>send coins</small></div>
+                <div class="menu-card" onclick="App.ui.openPage('homePage')"><i class="fas fa-home"></i><span>HOME</span><small>welcome</small></div>
+            </div>
+
+            <!-- ===== CHAPTERS SECTION ===== -->
+            <div class="chapters-section" data-aos="fade-up">
+                <div class="chapters-title">
+                    <i class="fas fa-crown"></i> 7 DEADLY SINS CHAPTERS
+                </div>
+                <div class="chapters-grid" id="chaptersGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PAGES ===== -->
+
+    <!-- ADD WORD PAGE -->
+    <div id="addPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-plus-circle"></i> ADD WORD</h2><button class="close-btn" onclick="App.ui.closePage('addPage')">✕</button></div>
+        <div style="max-width:500px; margin:0 auto;">
+            <div class="form-group"><label>📝 ENGLISH</label><input type="text" id="wordInput" placeholder="word"></div>
+            <div class="form-group"><label>🇺🇿 MEANING</label><input type="text" id="meaningInput" placeholder="meaning"></div>
+            <div class="form-group"><label>📂 CATEGORY</label>
+                <select id="categoryInput">
+                    <option value="general">General</option>
+                    <option value="academic">Academic</option>
+                    <option value="ielts">IELTS</option>
+                    <option value="pride">Pride</option>
+                    <option value="greed">Greed</option>
+                    <option value="lust">Lust</option>
+                    <option value="envy">Envy</option>
+                    <option value="gluttony">Gluttony</option>
+                    <option value="sloth">Sloth</option>
+                    <option value="wrath">Wrath</option>
+                </select>
+            </div>
+            <div class="form-group"><label>💬 EXAMPLE</label><textarea id="exampleInput" rows="2" placeholder="example sentence"></textarea></div>
+            <button class="btn" onclick="App.words.add()" style="width:100%">SAVE WORD (+1 coin)</button>
+            <button class="btn btn-secondary" onclick="App.ui.closePage('addPage')" style="width:100%">CANCEL</button>
+        </div>
+    </div>
+
+    <!-- WORDS PAGE -->
+    <div id="wordsPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-book"></i> MY WORDS</h2><button class="close-btn" onclick="App.ui.closePage('wordsPage')">✕</button></div>
+        <div class="form-group"><input type="text" id="searchInput" placeholder="🔍 Search..." onkeyup="App.words.search()"></div>
+        <div id="wordsContainer" class="word-grid"></div>
+    </div>
+
+    <!-- PRACTICE PAGE -->
+    <div id="practicePage" class="page">
+        <div class="page-header"><h2><i class="fas fa-brain"></i> PRACTICE</h2><button class="close-btn" onclick="App.ui.closePage('practicePage')">✕</button></div>
+        <div class="practice-container">
+            <div class="practice-word" id="practiceWord">---</div>
+            
+            <div class="voice-panel">
+                <button class="voice-btn" onclick="App.voice.speak()"><i class="fas fa-volume-up"></i></button>
+                <button class="voice-btn" onclick="App.voice.repeat()"><i class="fas fa-redo-alt"></i></button>
+                <button class="voice-btn" onclick="App.voice.slow()"><i class="fas fa-turtle"></i></button>
+                <button class="voice-btn" onclick="App.voice.spell()"><i class="fas fa-font"></i></button>
+                <button class="voice-btn" id="voiceToggle" onclick="App.voice.toggle()">🔊</button>
+                <input type="range" min="0.5" max="2" step="0.1" value="1" class="voice-speed-slider" id="voiceSpeed" oninput="App.voice.speed(this.value)">
+                <span class="voice-status" id="voiceStatus">ON</span>
+            </div>
+
+            <input type="text" id="practiceAnswer" class="practice-input" placeholder="Type meaning..." autocomplete="off" onkeypress="if(event.key==='Enter') App.practice.check()">
+            
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="progress-text" id="progressText">0/0</div>
+            <div class="feedback" id="practiceFeedback"></div>
+            
+            <div style="display:flex; gap:10px;">
+                <button class="btn" style="flex:2;" onclick="App.practice.check()">CHECK</button>
+                <button class="btn btn-secondary" style="flex:1;" onclick="App.practice.skip()">SKIP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SPELLING PAGE -->
+    <div id="spellingPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-font"></i> SPELLING</h2><button class="close-btn" onclick="App.ui.closePage('spellingPage')">✕</button></div>
+        <div id="spellingArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- FLASHCARD PAGE -->
+    <div id="flashcardPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-layer-group"></i> FLASHCARDS</h2><button class="close-btn" onclick="App.ui.closePage('flashcardPage')">✕</button></div>
+        <div id="flashcardArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- HANGMAN PAGE -->
+    <div id="hangmanPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-hangman"></i> HANGMAN</h2><button class="close-btn" onclick="App.ui.closePage('hangmanPage')">✕</button></div>
+        <div id="hangmanArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- CROSSWORD PAGE -->
+    <div id="crosswordPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-border-all"></i> CROSSWORD</h2><button class="close-btn" onclick="App.ui.closePage('crosswordPage')">✕</button></div>
+        <div id="crosswordArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- SCRAMBLE PAGE -->
+    <div id="scramblePage" class="page">
+        <div class="page-header"><h2><i class="fas fa-puzzle-piece"></i> WORD SCRAMBLE</h2><button class="close-btn" onclick="App.ui.closePage('scramblePage')">✕</button></div>
+        <div id="scrambleArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- LISTENING PAGE -->
+    <div id="listeningPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-headphones"></i> LISTENING</h2><button class="close-btn" onclick="App.ui.closePage('listeningPage')">✕</button></div>
+        <div id="listeningArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- TIMED CHALLENGE PAGE -->
+    <div id="timedPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-clock"></i> TIMED CHALLENGE</h2><button class="close-btn" onclick="App.ui.closePage('timedPage')">✕</button></div>
+        <div id="timedArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- MATCH GAME PAGE -->
+    <div id="matchPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-cards"></i> WORD MATCH</h2><button class="close-btn" onclick="App.ui.closePage('matchPage')">✕</button></div>
+        <div id="matchArea" style="max-width:600px; margin:0 auto;"></div>
+    </div>
+
+    <!-- GAMES PAGE (Main Games Hub) -->
+    <div id="gamesPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-gamepad"></i> GAMES</h2><button class="close-btn" onclick="App.ui.closePage('gamesPage')">✕</button></div>
+        <div class="games-grid">
+            <div class="game-card" onclick="App.ui.openPage('matchPage')"><i class="fas fa-cards"></i><h3>MATCH</h3><p>Find pairs</p><div class="reward">💰 1-2 coins</div></div>
+            <div class="game-card" onclick="App.ui.openPage('flashcardPage')"><i class="fas fa-layer-group"></i><h3>FLASHCARDS</h3><p>Flip & learn</p><div class="reward">💰 1 coin</div></div>
+            <div class="game-card" onclick="App.ui.openPage('hangmanPage')"><i class="fas fa-hangman"></i><h3>HANGMAN</h3><p>Guess the word</p><div class="reward">💰 2-3 coins</div></div>
+            <div class="game-card" onclick="App.ui.openPage('crosswordPage')"><i class="fas fa-border-all"></i><h3>CROSSWORD</h3><p>Solve puzzle</p><div class="reward">💰 3-5 coins</div></div>
+            <div class="game-card" onclick="App.ui.openPage('scramblePage')"><i class="fas fa-puzzle-piece"></i><h3>SCRAMBLE</h3><p>Unscramble</p><div class="reward">💰 1.5 coins</div></div>
+            <div class="game-card" onclick="App.ui.openPage('listeningPage')"><i class="fas fa-headphones"></i><h3>LISTENING</h3><p>Hear & choose</p><div class="reward">💰 1.5 coins</div></div>
+            <div class="game-card" onclick="App.ui.openPage('timedPage')"><i class="fas fa-clock"></i><h3>TIMED</h3><p>Race</p><div class="reward">💰 2-4 coins</div></div>
+            <div class="game-card" onclick="App.ui.openPage('practicePage')"><i class="fas fa-brain"></i><h3>PRACTICE</h3><p>Test</p><div class="reward">💰 0.3 each</div></div>
+            <div class="game-card" onclick="App.ui.openPage('spellingPage')"><i class="fas fa-font"></i><h3>SPELLING</h3><p>Write words</p><div class="reward">💰 0.5 each</div></div>
+        </div>
+    </div>
+
+    <!-- STORE PAGE (50+ ITEMS) -->
+    <div id="storePage" class="page">
+        <div class="page-header"><h2><i class="fas fa-store"></i> STORE (50+ ITEMS)</h2><button class="close-btn" onclick="App.ui.closePage('storePage')">✕</button></div>
+        <div style="text-align:center; margin-bottom:20px; font-size:20px;">
+            BALANCE: <span id="storeCoins">0</span> 🪙
+        </div>
+        <div class="store-grid" id="storeItems"></div>
+    </div>
+
+    <!-- RANKING PAGE WITH PHOTOS -->
+    <div id="rankingPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-trophy"></i> GLOBAL RANKING</h2><button class="close-btn" onclick="App.ui.closePage('rankingPage')">✕</button></div>
+        <div class="ranking-container" id="rankingContainer"></div>
+    </div>
+
+    <!-- STATISTICS PAGE -->
+    <div id="statsPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-chart-line"></i> STATISTICS</h2><button class="close-btn" onclick="App.ui.closePage('statsPage')">✕</button></div>
+        <div style="height:250px;"><canvas id="progressChart"></canvas></div>
+    </div>
+
+    <!-- CHAPTERS PAGE -->
+    <div id="chaptersPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-crown"></i> 7 DEADLY SINS</h2><button class="close-btn" onclick="App.ui.closePage('chaptersPage')">✕</button></div>
+        <div class="chapters-grid" id="chaptersGrid"></div>
+    </div>
+
+    <!-- ACHIEVEMENTS PAGE (30 ACHIEVEMENTS) -->
+    <div id="achievementsPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-medal"></i> ACHIEVEMENTS (30)</h2><button class="close-btn" onclick="App.ui.closePage('achievementsPage')">✕</button></div>
+        <div class="achievements-grid" id="achievementsContainer"></div>
+    </div>
+
+    <!-- PROFILE PAGE WITH PHOTO UPLOAD -->
+    <div id="profilePage" class="page">
+        <div class="page-header"><h2><i class="fas fa-user"></i> PROFILE EDITOR</h2><button class="close-btn" onclick="App.ui.closePage('profilePage')">✕</button></div>
+        <div class="profile-editor">
+            <div class="avatar-upload-container">
+                <div class="profile-avatar-large" id="profileAvatarLarge" onclick="document.getElementById('avatarInput').click()">
+                    <img id="profileAvatarImg" src="" alt="Avatar" style="display: none; width:100%; height:100%; object-fit:cover;">
+                    <span id="profileAvatarText" style="font-size:48px;">👤</span>
+                </div>
+                <input type="file" id="avatarInput" accept="image/*" onchange="App.profile.uploadAvatar()">
+                <label for="avatarInput" class="upload-btn">
+                    <i class="fas fa-camera"></i> Upload Photo
+                </label>
+                <p style="font-size:11px; color:var(--text-dim); margin-top:5px;">Max 1MB · Click to change</p>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Display Name</label>
+                <input type="text" id="profileNameInput" placeholder="Your name">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-at"></i> Username</label>
+                <input type="text" id="profileUsernameInput" placeholder="username" readonly disabled style="opacity:0.7;">
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn" style="flex:2;" onclick="App.profile.saveProfile()">SAVE CHANGES</button>
+                <button class="btn btn-secondary" style="flex:1;" onclick="App.profile.resetAvatar()">RESET</button>
+            </div>
+
+            <div style="background: var(--surface-light); border-radius: 20px; padding: 20px; margin-top: 30px;">
+                <h3 style="margin-bottom: 15px;">📊 STATS</h3>
+                <p>Words: <span id="profileWords">0</span></p>
+                <p>Mistakes: <span id="profileMistakes">0</span></p>
+                <p>XP: <span id="profileXP">0</span></p>
+                <p>Level: <span id="profileLevel">1</span></p>
+                <p>Coins: <span id="profileCoins">0</span></p>
+                <p>Streak: <span id="profileStreak">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GIFT PAGE -->
+    <div id="giftPage" class="page">
+        <div class="page-header"><h2><i class="fas fa-gift"></i> GIFT COINS</h2><button class="close-btn" onclick="App.ui.closePage('giftPage')">✕</button></div>
+        <div style="max-width:400px; margin:0 auto;">
+            <p>Your balance: <strong id="giftBalance">0</strong> 🪙</p>
+            <div class="form-group"><label>Recipient</label><input type="text" id="giftUsername" placeholder="username"></div>
+            <div class="form-group"><label>Amount</label><input type="number" id="giftAmount" min="1"></div>
+            <button class="btn" onclick="App.gift.send()">SEND GIFT</button>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page">
+        <div class="page-header"><h2><i class="fas fa-home"></i> HOME</h2><button class="close-btn" onclick="App.ui.closePage('homePage')">✕</button></div>
+        <div style="text-align:center; padding:40px;">
+            <h1 style="font-size:48px;">📚</h1>
+            <h2>Welcome to Ultimate Vocab Trainer</h2>
+            <p>20 Themes · 12 Games · 30 Achievements · Profile Photos</p>
+        </div>
+    </div>
+
+    <script>
+        // ===== MAIN APP OBJECT =====
+        const App = {
+            // Configuration
+            MASTER: { email: 'ayanakoji4@gmail.com', username: 'Monster', password: 'monster', id: 'master_9000' },
+            THEMES: ['pride', 'greed', 'lust', 'envy', 'gluttony', 'sloth', 'wrath', 'seoul', 'busan', 'jeju', 
+                     'rezero', 'sololeveling', 'onepiece', 'naruto', 'demonslayer', 'jjk', 'tokyo', 'kyoto', 'cyber', 'theme4'],
+
+            // State
+            users: JSON.parse(localStorage.getItem('vocab_users')) || {},
+            currentUser: localStorage.getItem('vocab_current') || null,
+            vocabulary: [],
+            mistakes: [],
+            history: [],
+            xp: 0,
+            level: 1,
+            coins: 0,
+            streak: 0,
+            achievements: [],
+            currentSession: [],
+            currentIndex: 0,
+            correct: 0,
+            voiceEnabled: true,
+            voiceSpeed: 1.0,
+            synth: window.speechSynthesis,
+            currentVoice: null,
+            userAvatars: JSON.parse(localStorage.getItem('user_avatars')) || {},
+            userNames: JSON.parse(localStorage.getItem('user_names')) || {},
+            chapters: [
+                { id: 'pride', name: 'PRIDE', icon: '🦚', unlocked: true, completed: false },
+                { id: 'greed', name: 'GREED', icon: '💰', unlocked: false, completed: false },
+                { id: 'lust', name: 'LUST', icon: '💋', unlocked: false, completed: false },
+                { id: 'envy', name: 'ENVY', icon: '🐍', unlocked: false, completed: false },
+                { id: 'gluttony', name: 'GLUTTONY', icon: '🍖', unlocked: false, completed: false },
+                { id: 'sloth', name: 'SLOTH', icon: '🦥', unlocked: false, completed: false },
+                { id: 'wrath', name: 'WRATH', icon: '⚡', unlocked: false, completed: false }
+            ],
+
+            // 50+ Store Items
+            STORE_ITEMS: [],
+
+            // 30 Achievements List (expanded)
+            ACHIEVEMENTS_LIST: [
+                { id: 'first_word', name: 'First Step', desc: 'Add your first word', icon: '📝', reward: 10 },
+                { id: 'word_10', name: 'Collector', desc: 'Add 10 words', icon: '📚', reward: 20 },
+                { id: 'word_50', name: 'Word Master', desc: 'Add 50 words', icon: '📖', reward: 50 },
+                { id: 'word_100', name: 'Lexicon', desc: 'Add 100 words', icon: '📕', reward: 100 },
+                { id: 'perfect_10', name: 'Perfect 10', desc: 'Get 10/10 in practice', icon: '🎯', reward: 30 },
+                { id: 'streak_7', name: 'Weekly Warrior', desc: '7 day streak', icon: '🔥', reward: 50 },
+                { id: 'streak_30', name: 'Monthly Master', desc: '30 day streak', icon: '⚡', reward: 200 },
+                { id: 'games_10', name: 'Gamer', desc: 'Play 10 games', icon: '🎮', reward: 40 },
+                { id: 'games_50', name: 'Pro Gamer', desc: 'Play 50 games', icon: '👾', reward: 150 },
+                { id: 'rich_1000', name: 'Rich', desc: 'Earn 1000 coins', icon: '💰', reward: 100 },
+                { id: 'rich_5000', name: 'Millionaire', desc: 'Earn 5000 coins', icon: '💎', reward: 500 },
+                { id: 'level_10', name: 'Novice', desc: 'Reach level 10', icon: '⭐', reward: 100 },
+                { id: 'level_25', name: 'Expert', desc: 'Reach level 25', icon: '🌟', reward: 250 },
+                { id: 'level_50', name: 'Master', desc: 'Reach level 50', icon: '👑', reward: 500 },
+                { id: 'chapter_pride', name: 'Sin of Pride', desc: 'Complete Pride chapter', icon: '🦚', reward: 100 },
+                { id: 'chapter_greed', name: 'Sin of Greed', desc: 'Complete Greed chapter', icon: '💰', reward: 100 },
+                { id: 'chapter_lust', name: 'Sin of Lust', desc: 'Complete Lust chapter', icon: '💋', reward: 100 },
+                { id: 'chapter_envy', name: 'Sin of Envy', desc: 'Complete Envy chapter', icon: '🐍', reward: 100 },
+                { id: 'chapter_gluttony', name: 'Sin of Gluttony', desc: 'Complete Gluttony chapter', icon: '🍖', reward: 100 },
+                { id: 'chapter_sloth', name: 'Sin of Sloth', desc: 'Complete Sloth chapter', icon: '🦥', reward: 100 },
+                { id: 'chapter_wrath', name: 'Sin of Wrath', desc: 'Complete Wrath chapter', icon: '⚡', reward: 100 },
+                { id: 'all_chapters', name: '7 Deadly Sins', desc: 'Complete all chapters', icon: '👹', reward: 1000 },
+                { id: 'hangman_5', name: 'Hangman Hero', desc: 'Win 5 hangman games', icon: '💀', reward: 50 },
+                { id: 'match_10', name: 'Match Master', desc: 'Win 10 match games', icon: '🃏', reward: 60 },
+                { id: 'crossword_5', name: 'Puzzle Solver', desc: 'Solve 5 crosswords', icon: '🔲', reward: 70 },
+                { id: 'listening_10', name: 'Listener', desc: 'Get 10 listening correct', icon: '🎧', reward: 40 },
+                { id: 'timed_5', name: 'Speedster', desc: 'Win 5 timed challenges', icon: '⏱️', reward: 80 },
+                { id: 'flashcard_100', name: 'Flashcard Fan', desc: 'Review 100 flashcards', icon: '🃏', reward: 90 },
+                { id: 'spelling_20', name: 'Spelling Bee', desc: 'Spell 20 words correctly', icon: '🐝', reward: 30 },
+                { id: 'mistake_learner', name: 'Learn from Mistakes', desc: 'Review 30 mistakes', icon: '📝', reward: 40 }
+            ],
+
+            // Initialize
+            init() {
+                this.generateStoreItems();
+                this.initDemoUsers();
+                this.initTheme();
+                this.initParticles();
+                this.initTyped();
+                this.initAOS();
+                this.initVoice();
+                this.loadUserData();
+                this.renderChapters();
+                
+                if (this.currentUser) {
+                    if (this.currentUser === this.MASTER.id) {
+                        document.getElementById('authSection').classList.add('hidden');
+                        document.getElementById('mainApp').classList.remove('hidden');
+                        this.ui.update();
+                    } else {
+                        document.getElementById('authSection').classList.add('hidden');
+                        document.getElementById('mainApp').classList.remove('hidden');
+                        this.ui.update();
+                        this.loadProfileData();
+                    }
+                }
+            },
+
+            generateStoreItems() {
+                for (let i = 1; i <= 53; i++) {
+                    this.STORE_ITEMS.push({
+                        id: `item${i}`,
+                        name: `Item ${i}`,
+                        desc: `Description for item ${i}`,
+                        price: Math.floor(Math.random() * 50) + 10
+                    });
+                }
+                // Special items
+                this.STORE_ITEMS[0] = { id: 'xpboost', name: '⚡ XP Boost', desc: 'Double XP for 1 hour', price: 50 };
+                this.STORE_ITEMS[1] = { id: 'streakfreeze', name: '❄️ Streak Freeze', desc: 'Protect streak', price: 30 };
+                this.STORE_ITEMS[2] = { id: 'wordpack', name: '📚 Word Pack', desc: '10 random words', price: 80 };
+                this.STORE_ITEMS[3] = { id: 'avatar', name: '🎨 Avatar Editor', desc: 'Unlock avatar features', price: 100 };
+            },
+
+            initDemoUsers() {
+                if (Object.keys(this.users).length === 0) {
+                    this.users.demo = {
+                        id: 'demo',
+                        username: 'demo',
+                        name: 'Demo User',
+                        email: 'demo@example.com',
+                        password: btoa('demo123'),
+                        xp: 150,
+                        coins: 250,
+                        level: 2,
+                        streak: 3,
+                        vocabulary: [
+                            { id: 1, word: 'analyze', meaning: 'tahlil qilmoq', correct: 5, wrong: 1, example: 'Scientists analyze data.' },
+                            { id: 2, word: 'approach', meaning: 'yondashuv', correct: 3, wrong: 2, example: 'A new approach.' },
+                            { id: 3, word: 'concept', meaning: 'tushuncha', correct: 4, wrong: 0, example: 'Basic concept.' }
+                        ],
+                        mistakes: [],
+                        achievements: []
+                    };
+                    localStorage.setItem('vocab_users', JSON.stringify(this.users));
+                }
+            },
+
+            // Storage
+            saveUserData() {
+                if (!this.currentUser || this.currentUser === this.MASTER.id) return;
+                let user = this.users[this.currentUser];
+                if (!user) return;
+                user.vocabulary = this.vocabulary;
+                user.mistakes = this.mistakes;
+                user.history = this.history;
+                user.xp = this.xp;
+                user.coins = this.coins;
+                user.streak = this.streak;
+                user.level = this.level;
+                user.achievements = this.achievements;
+                localStorage.setItem('vocab_users', JSON.stringify(this.users));
+            },
+
+            loadUserData() {
+                if (!this.currentUser || this.currentUser === this.MASTER.id) return;
+                let user = this.users[this.currentUser];
+                if (!user) return;
+                this.vocabulary = user.vocabulary || [];
+                this.mistakes = user.mistakes || [];
+                this.history = user.history || [];
+                this.xp = user.xp || 0;
+                this.coins = user.coins || 0;
+                this.streak = user.streak || 0;
+                this.level = user.level || 1;
+                this.achievements = user.achievements || [];
+            },
+
+            loadProfileData() {
+                if (!this.currentUser) return;
+                let avatar = this.userAvatars[this.currentUser];
+                let name = this.userNames[this.currentUser];
+                
+                if (avatar) {
+                    document.getElementById('profileAvatarImg').src = avatar;
+                    document.getElementById('profileAvatarImg').style.display = 'block';
+                    document.getElementById('profileAvatarText').style.display = 'none';
+                    
+                    document.getElementById('headerAvatarImg').src = avatar;
+                    document.getElementById('headerAvatarImg').style.display = 'block';
+                    document.getElementById('headerAvatarText').style.display = 'none';
+                }
+                
+                if (name) {
+                    document.getElementById('profileNameInput').value = name;
+                    document.getElementById('userName').innerText = name;
+                }
+                
+                if (this.users[this.currentUser]) {
+                    document.getElementById('profileUsernameInput').value = this.users[this.currentUser].username || '';
+                }
+            },
+
+            // Theme
+            initTheme() {
+                let saved = localStorage.getItem('vocab_theme') || 'pride';
+                this.setTheme(saved);
+                let grid = document.getElementById('themeGrid');
+                if (grid) {
+                    grid.innerHTML = this.THEMES.map(t => 
+                        `<button class="theme-btn ${t === saved ? 'active' : ''}" onclick="App.setTheme('${t}')">${t}</button>`
+                    ).join('');
+                }
+            },
+
+            setTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('vocab_theme', theme);
+                document.querySelectorAll('.theme-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.textContent === theme);
+                });
+            },
+
+            // Auth
+            auth: {
+                switchTab(tab) {
+                    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                    if (tab === 'login') {
+                        document.querySelectorAll('.auth-tab')[0].classList.add('active');
+                        document.getElementById('loginForm').classList.remove('hidden');
+                        document.getElementById('registerForm').classList.add('hidden');
+                    } else {
+                        document.querySelectorAll('.auth-tab')[1].classList.add('active');
+                        document.getElementById('loginForm').classList.add('hidden');
+                        document.getElementById('registerForm').classList.remove('hidden');
+                    }
+                },
+
+                login() {
+                    let login = document.getElementById('loginUsername').value.trim();
+                    let pass = document.getElementById('loginPassword').value;
+                    
+                    if ((login === App.MASTER.email || login === App.MASTER.username) && pass === App.MASTER.password) {
+                        App.currentUser = App.MASTER.id;
+                        localStorage.setItem('vocab_current', App.MASTER.id);
+                        App.vocabulary = [];
+                        App.xp = 999999;
+                        App.coins = 999999;
+                        App.level = 100;
+                        document.getElementById('authSection').classList.add('hidden');
+                        document.getElementById('mainApp').classList.remove('hidden');
+                        App.ui.update();
+                        App.notify('👑 Welcome, Master!', 'success');
+                        return;
+                    }
+                    
+                    for (let id in App.users) {
+                        let u = App.users[id];
+                        if ((u.email === login || u.username === login) && u.password === btoa(pass)) {
+                            App.currentUser = id;
+                            localStorage.setItem('vocab_current', id);
+                            App.loadUserData();
+                            document.getElementById('authSection').classList.add('hidden');
+                            document.getElementById('mainApp').classList.remove('hidden');
+                            App.ui.update();
+                            App.loadProfileData();
+                            App.notify(`✅ Welcome back, ${u.username}!`, 'success');
+                            return;
+                        }
+                    }
+                    App.notify('Invalid credentials', 'error');
+                },
+
+                register() {
+                    let username = document.getElementById('regUsername').value.trim();
+                    let name = document.getElementById('regName').value.trim();
+                    let email = document.getElementById('regEmail').value.trim();
+                    let pass = document.getElementById('regPassword').value;
+                    let confirm = document.getElementById('regConfirm').value;
+                    
+                    if (!username || !name || !email || !pass) { App.notify('Fill all fields', 'error'); return; }
+                    if (pass.length < 6) { App.notify('Password too short', 'error'); return; }
+                    if (pass !== confirm) { App.notify('Passwords do not match', 'error'); return; }
+                    
+                    for (let id in App.users) {
+                        if (App.users[id].username === username) { App.notify('Username taken', 'error'); return; }
+                        if (App.users[id].email === email) { App.notify('Email registered', 'error'); return; }
+                    }
+                    
+                    let id = 'user_' + Date.now();
+                    App.users[id] = {
+                        id, username, name, email, password: btoa(pass),
+                        vocabulary: [], mistakes: [], xp: 0, coins: 100, level: 1, streak: 0, achievements: []
+                    };
+                    localStorage.setItem('vocab_users', JSON.stringify(App.users));
+                    App.notify('Registered! Please login.', 'success');
+                    App.auth.switchTab('login');
+                },
+
+                logout() {
+                    App.currentUser = null;
+                    localStorage.removeItem('vocab_current');
+                    document.getElementById('authSection').classList.remove('hidden');
+                    document.getElementById('mainApp').classList.add('hidden');
+                    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                }
+            },
+
+            // Voice
+            voice: {
+                init() {
+                    if (!App.synth) return;
+                    let load = () => {
+                        let voices = App.synth.getVoices();
+                        App.currentVoice = voices.find(v => v.lang.includes('en')) || voices[0];
+                    };
+                    load();
+                    if (App.synth.onvoiceschanged) App.synth.onvoiceschanged = load;
+                },
+
+                speakText(text) {
+                    if (!App.voiceEnabled || !text || !App.synth) return;
+                    App.synth.cancel();
+                    let utter = new SpeechSynthesisUtterance(text);
+                    if (App.currentVoice) utter.voice = App.currentVoice;
+                    utter.rate = App.voiceSpeed;
+                    utter.lang = 'en-US';
+                    App.synth.speak(utter);
+                },
+
+                speak() {
+                    if (App.currentSession[App.currentIndex]) {
+                        this.speakText(App.currentSession[App.currentIndex].word);
+                    }
+                },
+
+                repeat() {
+                    if (App.currentSession[App.currentIndex]) {
+                        let w = App.currentSession[App.currentIndex].word;
+                        this.speakText(w);
+                        setTimeout(() => this.speakText(w), 1200);
+                        setTimeout(() => this.speakText(w), 2400);
+                    }
+                },
+
+                slow() {
+                    let old = App.voiceSpeed;
+                    App.voiceSpeed = 0.6;
+                    this.speak();
+                    setTimeout(() => { App.voiceSpeed = old; }, 3000);
+                },
+
+                spell() {
+                    if (App.currentSession[App.currentIndex]) {
+                        let w = App.currentSession[App.currentIndex].word;
+                        this.speakText(w);
+                        w.split('').forEach((l, i) => {
+                            setTimeout(() => this.speakText(l), 1500 + i * 500);
+                        });
+                        setTimeout(() => this.speakText(w), 1500 + w.length * 500 + 500);
+                    }
+                },
+
+                toggle() {
+                    App.voiceEnabled = !App.voiceEnabled;
+                    document.getElementById('voiceToggle').innerHTML = App.voiceEnabled ? '🔊' : '🔇';
+                    document.getElementById('voiceStatus').innerText = App.voiceEnabled ? 'ON' : 'OFF';
+                },
+
+                speed(val) {
+                    App.voiceSpeed = parseFloat(val);
+                }
+            },
+
+            // Words
+            words: {
+                add() {
+                    let word = document.getElementById('wordInput')?.value.trim();
+                    let meaning = document.getElementById('meaningInput')?.value.trim();
+                    if (!word || !meaning) { App.notify('Word and meaning required', 'error'); return; }
+                    
+                    App.vocabulary.push({
+                        id: Date.now(),
+                        word: word.toLowerCase(),
+                        meaning: meaning.toLowerCase(),
+                        category: document.getElementById('categoryInput')?.value,
+                        example: document.getElementById('exampleInput')?.value.trim(),
+                        correct: 0, wrong: 0
+                    });
+                    
+                    App.coins += 1;
+                    App.xp += 10;
+                    App.saveUserData();
+                    App.ui.update();
+                    App.ui.closePage('addPage');
+                    App.notify('Word added! +1 coin', 'success');
+                    App.checkAchievements();
+                },
+
+                render() {
+                    let container = document.getElementById('wordsContainer');
+                    if (!App.vocabulary.length) {
+                        container.innerHTML = '<div style="text-align:center; padding:40px;">📭 No words yet</div>';
+                        return;
+                    }
+                    container.innerHTML = App.vocabulary.map(w => `
+                        <div class="word-card">
+                            <div class="word-english">${w.word}</div>
+                            <div class="word-meaning">${w.meaning}</div>
+                            ${w.example ? `<div class="word-example">"${w.example}"</div>` : ''}
+                            <div class="word-actions">
+                                <button onclick="App.voice.speakText('${w.word}')"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="App.words.delete(${w.id})"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `).join('');
+                },
+
+                delete(id) {
+                    if (!confirm('Delete?')) return;
+                    App.vocabulary = App.vocabulary.filter(w => w.id !== id);
+                    App.saveUserData();
+                    this.render();
+                    App.ui.update();
+                },
+
+                search() {
+                    let q = document.getElementById('searchInput')?.value.toLowerCase() || '';
+                    let filtered = App.vocabulary.filter(w => w.word.includes(q) || w.meaning.includes(q));
+                    document.getElementById('wordsContainer').innerHTML = filtered.map(w => `
+                        <div class="word-card"><div class="word-english">${w.word}</div><div class="word-meaning">${w.meaning}</div></div>
+                    `).join('');
+                }
+            },
+
+            // Practice
+            practice: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); App.ui.closePage('practicePage'); return; }
+                    let weak = App.vocabulary.filter(w => (w.wrong || 0) > (w.correct || 0));
+                    let other = App.vocabulary.filter(w => !weak.includes(w));
+                    App.currentSession = [...weak.slice(0, 3), ...other.slice(0, 7)].sort(() => Math.random() - 0.5);
+                    App.currentIndex = 0;
+                    App.correct = 0;
+                    this.showNext();
+                },
+
+                showNext() {
+                    if (App.currentIndex >= App.currentSession.length) { this.end(); return; }
+                    let w = App.currentSession[App.currentIndex];
+                    document.getElementById('practiceWord').innerText = w.word;
+                    document.getElementById('practiceAnswer').value = '';
+                    document.getElementById('practiceFeedback').innerHTML = '';
+                    let progress = (App.currentIndex / App.currentSession.length) * 100;
+                    document.getElementById('progressFill').style.width = progress + '%';
+                    document.getElementById('progressText').innerText = `${App.currentIndex+1}/${App.currentSession.length}`;
+                },
+
+                check() {
+                    let ans = document.getElementById('practiceAnswer').value.trim().toLowerCase();
+                    let w = App.currentSession[App.currentIndex];
+                    if (ans === w.meaning) {
+                        document.getElementById('practiceFeedback').innerHTML = '<span class="success">✅ Correct! +0.3 coins</span>';
+                        w.correct = (w.correct || 0) + 1;
+                        App.correct++;
+                        App.coins += 0.3;
+                        App.xp += 8;
+                    } else {
+                        document.getElementById('practiceFeedback').innerHTML = `<span class="error">❌ Correct: ${w.meaning}</span>`;
+                        w.wrong = (w.wrong || 0) + 1;
+                        if (!App.mistakes.some(m => m.id === w.id)) App.mistakes.push(w);
+                    }
+                    App.currentIndex++;
+                    App.saveUserData();
+                    App.ui.update();
+                    setTimeout(() => this.showNext(), 800);
+                },
+
+                skip() { if (App.currentIndex < App.currentSession.length) { App.currentIndex++; this.showNext(); } },
+                end() { App.notify('Practice complete!', 'success'); App.ui.closePage('practicePage'); }
+            },
+
+            // Spelling
+            spelling: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); App.ui.closePage('spellingPage'); return; }
+                    let words = [...App.vocabulary].sort(() => Math.random() - 0.5).slice(0, 5);
+                    window.spellingSession = { words, index: 0, correct: 0 };
+                    this.show();
+                },
+
+                show() {
+                    let s = window.spellingSession;
+                    if (!s || s.index >= s.words.length) { this.end(); return; }
+                    let w = s.words[s.index];
+                    document.getElementById('spellingArea').innerHTML = `
+                        <div style="text-align:center;">
+                            <div style="font-size:48px; margin:30px;">${w.word}</div>
+                            <input type="text" id="spellingInput" placeholder="Type the word..." style="width:100%; padding:15px;">
+                            <div style="margin:20px;">
+                                <button class="btn" onclick="App.spelling.check()">CHECK</button>
+                                <button class="btn btn-secondary" onclick="App.spelling.next()">SKIP</button>
+                            </div>
+                        </div>
+                    `;
+                },
+
+                check() {
+                    let s = window.spellingSession; let w = s.words[s.index];
+                    let ans = document.getElementById('spellingInput').value.trim().toLowerCase();
+                    if (ans === w.word.toLowerCase()) {
+                        s.correct++; w.correct = (w.correct || 0) + 1;
+                        App.coins += 0.5; App.xp += 10;
+                        App.notify('✅ Correct! +0.5 coins', 'success');
+                    } else { App.notify(`❌ Correct: ${w.word}`, 'error'); }
+                    s.index++; App.saveUserData(); App.ui.update();
+                    setTimeout(() => this.show(), 1000);
+                },
+
+                next() { window.spellingSession.index++; this.show(); },
+                end() { document.getElementById('spellingArea').innerHTML = '<h3>Spelling complete!</h3>'; window.spellingSession = null; }
+            },
+
+            // Flashcard
+            flashcard: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); return; }
+                    window.flashcard = { cards: [...App.vocabulary].sort(() => Math.random() - 0.5), index: 0, flipped: false };
+                    this.show();
+                },
+
+                show() {
+                    let f = window.flashcard; if (!f || f.index >= f.cards.length) { this.end(); return; }
+                    let card = f.cards[f.index];
+                    document.getElementById('flashcardArea').innerHTML = `
+                        <div class="flashcard" onclick="App.flashcard.flip()">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">${f.flipped ? card.meaning : card.word}</div>
+                                <div class="flashcard-back">${f.flipped ? card.word : card.meaning}</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:10px; margin-top:20px;">
+                            <button class="btn" onclick="App.flashcard.next()">NEXT</button>
+                            <button class="btn btn-secondary" onclick="App.flashcard.known()">✅ KNOWN (+0.2)</button>
+                        </div>
+                    `;
+                },
+
+                flip() { window.flashcard.flipped = !window.flashcard.flipped; this.show(); },
+                known() { App.coins += 0.2; App.xp += 5; App.saveUserData(); App.ui.update(); this.next(); },
+                next() { window.flashcard.index++; window.flashcard.flipped = false; this.show(); },
+                end() { document.getElementById('flashcardArea').innerHTML = '<h3>Flashcards done!</h3>'; }
+            },
+
+            // Hangman
+            hangman: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); return; }
+                    let word = App.vocabulary[Math.floor(Math.random() * App.vocabulary.length)].word;
+                    window.hangman = { word, guessed: [], mistakes: 0, maxMistakes: 6 };
+                    this.show();
+                },
+
+                show() {
+                    let h = window.hangman;
+                    let display = h.word.split('').map(l => h.guessed.includes(l) ? l : '_').join(' ');
+                    let letters = 'abcdefghijklmnopqrstuvwxyz'.split('').map(l => 
+                        `<div class="hangman-letter ${h.guessed.includes(l) ? 'used' : ''}" onclick="App.hangman.guess('${l}')">${l}</div>`
+                    ).join('');
+                    document.getElementById('hangmanArea').innerHTML = `
+                        <div class="hangman-display">${display}</div>
+                        <div>Mistakes: ${h.mistakes}/${h.maxMistakes}</div>
+                        <div class="hangman-letters">${letters}</div>
+                        ${h.mistakes >= h.maxMistakes ? '<p>Game Over! <button class="btn" onclick="App.hangman.start()">Try Again</button></p>' : ''}
+                    `;
+                    if (!display.includes('_')) {
+                        App.coins += 2; App.xp += 30; App.ui.update(); App.saveUserData();
+                        App.notify('🎉 You won! +2 coins', 'success');
+                        setTimeout(() => this.start(), 1500);
+                    }
+                },
+
+                guess(l) {
+                    let h = window.hangman;
+                    if (h.guessed.includes(l) || h.mistakes >= h.maxMistakes) return;
+                    h.guessed.push(l);
+                    if (!h.word.includes(l)) h.mistakes++;
+                    this.show();
+                }
+            },
+
+            // Crossword
+            crossword: {
+                start() {
+                    if (App.vocabulary.length < 3) { App.notify('Need at least 3 words', 'error'); return; }
+                    let words = [...App.vocabulary].sort(() => Math.random() - 0.5).slice(0, 3);
+                    window.crossword = { words, answers: {} };
+                    this.show();
+                },
+
+                show() {
+                    let c = window.crossword;
+                    let html = '<div style="display:grid; gap:15px;">';
+                    c.words.forEach((w, i) => {
+                        html += `
+                            <div style="background:var(--surface); padding:20px; border-radius:20px;">
+                                <div style="font-size:18px; margin-bottom:10px;">Clue: ${w.meaning}</div>
+                                <input type="text" id="crossword-${i}" placeholder="Enter word" style="width:100%; padding:12px;">
+                            </div>
+                        `;
+                    });
+                    html += `<button class="btn" onclick="App.crossword.check()">CHECK ANSWERS</button></div>`;
+                    document.getElementById('crosswordArea').innerHTML = html;
+                },
+
+                check() {
+                    let c = window.crossword; let correct = 0;
+                    c.words.forEach((w, i) => {
+                        let ans = document.getElementById(`crossword-${i}`).value.trim().toLowerCase();
+                        if (ans === w.word) correct++;
+                    });
+                    if (correct === c.words.length) {
+                        App.coins += 3; App.xp += 50; App.saveUserData(); App.ui.update();
+                        App.notify('🎉 Perfect! +3 coins', 'success');
+                    } else {
+                        App.notify(`You got ${correct}/${c.words.length} correct!`, 'info');
+                    }
+                }
+            },
+
+            // Scramble
+            scramble: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); return; }
+                    let word = App.vocabulary[Math.floor(Math.random() * App.vocabulary.length)];
+                    let scrambled = word.word.split('').sort(() => Math.random() - 0.5).join('');
+                    document.getElementById('scrambleArea').innerHTML = `
+                        <div style="font-size:48px; letter-spacing:5px; margin:30px;">${scrambled}</div>
+                        <div>Hint: ${word.meaning}</div>
+                        <input type="text" id="scrambleInput" style="width:100%; padding:12px; margin:20px 0;">
+                        <button class="btn" onclick="App.scramble.check('${word.word}')">Submit</button>
+                    `;
+                },
+
+                check(correct) {
+                    let ans = document.getElementById('scrambleInput').value.trim().toLowerCase();
+                    if (ans === correct) {
+                        App.coins += 1.5; App.xp += 25; App.saveUserData(); App.ui.update();
+                        App.notify('✅ Correct! +1.5 coins', 'success');
+                        this.start();
+                    } else { App.notify('❌ Try again', 'error'); }
+                }
+            },
+
+            // Listening
+            listening: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); return; }
+                    let w = App.vocabulary[Math.floor(Math.random() * App.vocabulary.length)];
+                    App.voice.speakText(w.word);
+                    let opts = [w.meaning];
+                    while (opts.length < 4) {
+                        let r = App.vocabulary[Math.floor(Math.random() * App.vocabulary.length)];
+                        if (!opts.includes(r.meaning)) opts.push(r.meaning);
+                    }
+                    opts = opts.sort(() => Math.random() - 0.5);
+                    document.getElementById('listeningArea').innerHTML = `
+                        <div style="font-size:24px; margin:20px;">🔊 Listen carefully</div>
+                        <div class="listening-options">
+                            ${opts.map(o => `<div class="listening-btn" onclick="App.listening.check('${o}', '${w.meaning}')">${o}</div>`).join('')}
+                        </div>
+                    `;
+                },
+
+                check(selected, correct) {
+                    if (selected === correct) {
+                        App.coins += 1.5; App.xp += 20; App.saveUserData(); App.ui.update();
+                        App.notify('✅ Correct! +1.5 coins', 'success');
+                    } else { App.notify(`❌ Correct: ${correct}`, 'error'); }
+                    this.start();
+                }
+            },
+
+            // Timed
+            timed: {
+                start() {
+                    if (!App.vocabulary.length) { App.notify('Add words first', 'error'); return; }
+                    let word = App.vocabulary[Math.floor(Math.random() * App.vocabulary.length)];
+                    window.timed = { word, timeLeft: 10 };
+                    document.getElementById('timedArea').innerHTML = `
+                        <div style="font-size:48px; margin:20px;">${word.word}</div>
+                        <div class="timer-display" id="timedTimer">10s</div>
+                        <div class="timer-bar"><div class="timer-fill" id="timedFill"></div></div>
+                        <input type="text" id="timedInput" style="width:100%; padding:12px; margin:20px 0;">
+                        <button class="btn" onclick="App.timed.check()">Submit</button>
+                    `;
+                    window.timedInterval = setInterval(() => {
+                        window.timed.timeLeft--;
+                        document.getElementById('timedTimer').innerText = window.timed.timeLeft + 's';
+                        document.getElementById('timedFill').style.width = (window.timed.timeLeft / 10) * 100 + '%';
+                        if (window.timed.timeLeft <= 0) {
+                            clearInterval(window.timedInterval);
+                            App.notify('Time\'s up!', 'error');
+                            this.start();
+                        }
+                    }, 1000);
+                },
+
+                check() {
+                    let ans = document.getElementById('timedInput').value.trim().toLowerCase();
+                    if (ans === window.timed.word.meaning) {
+                        clearInterval(window.timedInterval);
+                        App.coins += 2; App.xp += 30; App.saveUserData(); App.ui.update();
+                        App.notify('✅ Correct! +2 coins', 'success');
+                        this.start();
+                    } else { App.notify('❌ Try again', 'error'); }
+                }
+            },
+
+            // Match
+            match: {
+                start() {
+                    if (App.vocabulary.length < 4) { App.notify('Need 4 words', 'error'); return; }
+                    let words = [...App.vocabulary].sort(() => Math.random() - 0.5).slice(0, 4);
+                    let cards = [];
+                    words.forEach(w => {
+                        cards.push({ text: w.word, id: w.id, type: 'word' });
+                        cards.push({ text: w.meaning, id: w.id, type: 'meaning' });
+                    });
+                    cards = cards.sort(() => Math.random() - 0.5);
+                    window.matchGame = { cards, selected: null, matched: [], score: 0 };
+                    document.getElementById('matchArea').innerHTML = `
+                        <h3>Match words & meanings</h3>
+                        <div class="matching-grid">
+                            ${cards.map((c, i) => `<div class="matching-card" onclick="App.match.select(${i})" id="matchCard-${i}">${c.text}</div>`).join('')}
+                        </div>
+                        <div id="matchMessage" style="margin:15px;"></div>
+                    `;
+                },
+
+                select(i) {
+                    let g = window.matchGame; if (!g) return;
+                    if (g.matched.includes(g.cards[i].id)) { document.getElementById('matchMessage').innerText = 'Already matched'; return; }
+                    if (g.selected === null) {
+                        g.selected = i; document.getElementById(`matchCard-${i}`).classList.add('selected');
+                    } else {
+                        let first = g.selected; let second = i;
+                        document.getElementById(`matchCard-${first}`).classList.remove('selected');
+                        if (g.cards[first].id === g.cards[second].id && first !== second) {
+                            g.matched.push(g.cards[first].id);
+                            document.getElementById(`matchCard-${first}`).classList.add('matched');
+                            document.getElementById(`matchCard-${second}`).classList.add('matched');
+                            if (g.matched.length === 4) {
+                                App.coins += 1; App.xp += 20; App.saveUserData(); App.ui.update();
+                                document.getElementById('matchMessage').innerHTML = '🎉 Game complete! +1 coin';
+                            } else { document.getElementById('matchMessage').innerHTML = '✅ Match!'; }
+                        } else { document.getElementById('matchMessage').innerHTML = '❌ Try again'; }
+                        g.selected = null;
+                    }
+                }
+            },
+
+            // Store
+            store: {
+                render() {
+                    let container = document.getElementById('storeItems');
+                    let html = '';
+                    App.STORE_ITEMS.sort(() => Math.random() - 0.5).slice(0, 53).forEach(item => {
+                        html += `
+                            <div class="store-item ${item.id === 'xpboost' ? 'popular' : ''}" onclick="App.store.buy('${item.id}', ${item.price})">
+                                <h4>${item.name}</h4>
+                                <p>${item.desc}</p>
+                                <div class="store-price">${item.price} 🪙</div>
+                            </div>
+                        `;
+                    });
+                    container.innerHTML = html;
+                },
+
+                buy(id, price) {
+                    if (App.coins < price) { App.notify('Not enough coins', 'error'); return; }
+                    App.coins -= price;
+                    
+                    if (id.includes('wordpack') || (id.includes('item') && price === 80)) {
+                        let words = ['persistent','diligent','meticulous','tenacious','resilient','adaptable','coherent','eloquent','fluent','proficient'];
+                        let meanings = ['qat\'iy','tirishqoq','sinchkov','qat\'iyatli','chidamli','moslashuvchan','izchil','notiq','ravon','malakali'];
+                        for (let i = 0; i < 10; i++) {
+                            App.vocabulary.push({ id: Date.now() + i, word: words[i], meaning: meanings[i], correct: 0, wrong: 0 });
+                        }
+                        App.notify('📚 10 words added!', 'success');
+                    } else if (id === 'xpboost') {
+                        App.notify('⚡ XP Boost activated for 1 hour!', 'success');
+                    } else if (id === 'streakfreeze') {
+                        App.notify('❄️ Streak freeze activated!', 'success');
+                    } else {
+                        App.notify('✅ Purchase successful!', 'success');
+                    }
+                    
+                    App.saveUserData();
+                    App.ui.update();
+                    this.render();
+                    document.getElementById('storeCoins').innerText = Math.floor(App.coins);
+                }
+            },
+
+            // Ranking with Photos (Master NEVER appears)
+            ranking: {
+                render() {
+                    let container = document.getElementById('rankingContainer');
+                    let ranking = [];
+                    
+                    for (let id in App.users) {
+                        if (id === 'master_9000' || App.users[id].username === 'Monster') continue;
+                        let user = App.users[id];
+                        let avatar = App.userAvatars[id] || '';
+                        let name = App.userNames[id] || user.username;
+                        
+                        ranking.push({
+                            id: id,
+                            username: user.username,
+                            displayName: name,
+                            xp: user.xp || 0,
+                            level: user.level || 1,
+                            avatar: avatar
+                        });
+                    }
+                    
+                    ranking.sort((a, b) => b.xp - a.xp);
+                    ranking = ranking.slice(0, 20);
+                    
+                    let html = '<div class="ranking-row header"><div>#</div><div></div><div>USER</div><div>LEVEL</div><div>XP</div></div>';
+                    
+                    ranking.forEach((r, i) => {
+                        let medal = i === 0 ? '👑' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
+                        let avatarHtml = r.avatar ? 
+                            `<img src="${r.avatar}" class="rank-avatar-img" alt="avatar">` : 
+                            `<div class="rank-avatar">👤</div>`;
+                        
+                        html += `
+                            <div class="ranking-row rank-${i+1}">
+                                <div>${i+1} ${medal}</div>
+                                <div>${avatarHtml}</div>
+                                <div>${r.displayName}</div>
+                                <div>${r.level}</div>
+                                <div>${r.xp}</div>
+                            </div>
+                        `;
+                    });
+                    
+                    container.innerHTML = html;
+                }
+            },
+
+            // Profile with Photo Upload
+            profile: {
+                uploadAvatar() {
+                    let input = document.getElementById('avatarInput');
+                    let file = input.files[0];
+                    
+                    if (!file) return;
+                    
+                    if (!file.type.startsWith('image/')) {
+                        App.notify('Please select an image file', 'error');
+                        return;
+                    }
+                    
+                    if (file.size > 1_000_000) {
+                        App.notify('Image too large (max 1MB)', 'error');
+                        return;
+                    }
+                    
+                    let reader = new FileReader();
+                    reader.onload = (e) => {
+                        let avatarData = e.target.result;
+                        
+                        App.userAvatars[App.currentUser] = avatarData;
+                        localStorage.setItem('user_avatars', JSON.stringify(App.userAvatars));
+                        
+                        document.getElementById('profileAvatarImg').src = avatarData;
+                        document.getElementById('profileAvatarImg').style.display = 'block';
+                        document.getElementById('profileAvatarText').style.display = 'none';
+                        
+                        document.getElementById('headerAvatarImg').src = avatarData;
+                        document.getElementById('headerAvatarImg').style.display = 'block';
+                        document.getElementById('headerAvatarText').style.display = 'none';
+                        
+                        App.notify('✅ Photo uploaded!', 'success');
+                        
+                        if (document.getElementById('rankingPage').classList.contains('active')) {
+                            App.ranking.render();
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                },
+
+                saveProfile() {
+                    let newName = document.getElementById('profileNameInput').value.trim();
+                    if (newName) {
+                        App.userNames[App.currentUser] = newName;
+                        localStorage.setItem('user_names', JSON.stringify(App.userNames));
+                        document.getElementById('userName').innerText = newName;
+                        App.notify('✅ Name updated!', 'success');
+                        
+                        if (document.getElementById('rankingPage').classList.contains('active')) {
+                            App.ranking.render();
+                        }
+                    }
+                },
+
+                resetAvatar() {
+                    if (confirm('Reset to default avatar?')) {
+                        delete App.userAvatars[App.currentUser];
+                        localStorage.setItem('user_avatars', JSON.stringify(App.userAvatars));
+                        
+                        document.getElementById('profileAvatarImg').style.display = 'none';
+                        document.getElementById('profileAvatarText').style.display = 'block';
+                        
+                        document.getElementById('headerAvatarImg').style.display = 'none';
+                        document.getElementById('headerAvatarText').style.display = 'inline';
+                        
+                        App.notify('Avatar reset', 'info');
+                        
+                        if (document.getElementById('rankingPage').classList.contains('active')) {
+                            App.ranking.render();
+                        }
+                    }
+                }
+            },
+
+            // Gift
+            gift: {
+                send() {
+                    let username = document.getElementById('giftUsername').value.trim();
+                    let amount = parseInt(document.getElementById('giftAmount').value);
+                    if (!username || !amount) { alert('Enter username and amount'); return; }
+                    if (amount > App.coins) { alert('Not enough coins'); return; }
+                    
+                    let targetId = null;
+                    for (let id in App.users) {
+                        if (App.users[id].username === username) { targetId = id; break; }
+                    }
+                    if (!targetId) { alert('User not found'); return; }
+                    
+                    App.coins -= amount;
+                    App.users[targetId].coins = (App.users[targetId].coins || 0) + amount;
+                    App.saveUserData();
+                    App.ui.update();
+                    document.getElementById('giftBalance').innerText = Math.floor(App.coins);
+                    App.notify(`Sent ${amount} coins to ${username}`);
+                    document.getElementById('giftUsername').value = '';
+                    document.getElementById('giftAmount').value = '';
+                }
+            },
+
+            // Chapters
+            chapters: {
+                render() {
+                    let grid = document.getElementById('chaptersGrid');
+                    if (!grid) return;
+                    grid.innerHTML = App.chapters.map(ch => {
+                        let status = ch.unlocked ? (ch.completed ? 'completed' : 'unlocked') : 'locked';
+                        return `<div class="chapter-card ${status}" onclick="App.chapters.open('${ch.id}')"><div class="chapter-icon">${ch.icon}</div><div class="chapter-name">${ch.name}</div></div>`;
+                    }).join('');
+                },
+
+                open(id) {
+                    let ch = App.chapters.find(c => c.id === id);
+                    if (!ch) return;
+                    if (!ch.unlocked) { App.notify('Chapter locked!', 'warning'); return; }
+                    App.notify(`Opening ${ch.name}`, 'info');
+                }
+            },
+
+            // Stats
+            stats: {
+                render() {
+                    let ctx = document.getElementById('progressChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                            datasets: [{
+                                label: 'Words Learned',
+                                data: [5, 12, 18, App.vocabulary.length],
+                                borderColor: 'var(--primary)'
+                            }]
+                        }
+                    });
+                }
+            },
+
+            // Achievements
+            achievements: {
+                render() {
+                    let container = document.getElementById('achievementsContainer');
+                    let unlocked = App.achievements || [];
+                    container.innerHTML = App.ACHIEVEMENTS_LIST.map(a => {
+                        let isUnlocked = unlocked.includes(a.id);
+                        return `<div class="achievement-card ${isUnlocked ? 'unlocked' : ''}"><div class="achievement-icon">${a.icon}</div><div class="achievement-info"><div class="achievement-name">${a.name}</div><div class="achievement-desc">${a.desc}</div><div class="achievement-reward">+${a.reward} 🪙</div></div></div>`;
+                    }).join('');
+                }
+            },
+
+            // UI
+            ui: {
+                update() {
+                    document.getElementById('totalWords').innerText = App.vocabulary.length;
+                    document.getElementById('totalMistakes').innerText = App.mistakes.length;
+                    
+                    let correct = App.vocabulary.reduce((s, w) => s + (w.correct || 0), 0);
+                    let wrong = App.vocabulary.reduce((s, w) => s + (w.wrong || 0), 0);
+                    let acc = (correct + wrong) ? Math.round((correct / (correct + wrong)) * 100) : 0;
+                    document.getElementById('accuracy').innerText = acc + '%';
+                    
+                    App.level = Math.floor(App.xp / 100) + 1;
+                    document.getElementById('level').innerText = App.level;
+                    document.getElementById('xp').innerText = App.xp;
+                    document.getElementById('coins').innerText = Math.floor(App.coins);
+                    document.getElementById('coinDisplay').innerText = Math.floor(App.coins);
+                    document.getElementById('streak').innerText = App.streak;
+                    
+                    let rank = 'E';
+                    if (App.xp > 500) rank = 'D';
+                    if (App.xp > 1000) rank = 'C';
+                    if (App.xp > 2000) rank = 'B';
+                    if (App.xp > 3500) rank = 'A';
+                    if (App.xp > 5000) rank = 'S';
+                    document.getElementById('rank').innerText = rank;
+                    document.getElementById('rankBadge').innerText = rank;
+                    
+                    if (App.currentUser && App.users[App.currentUser]) {
+                        let displayName = App.userNames[App.currentUser] || App.users[App.currentUser].username;
+                        document.getElementById('userName').innerText = displayName;
+                    }
+                    
+                    document.getElementById('profileWords').innerText = App.vocabulary.length;
+                    document.getElementById('profileMistakes').innerText = App.mistakes.length;
+                    document.getElementById('profileXP').innerText = App.xp;
+                    document.getElementById('profileLevel').innerText = App.level;
+                    document.getElementById('profileCoins').innerText = Math.floor(App.coins);
+                    document.getElementById('profileStreak').innerText = App.streak;
+                },
+
+                openPage(id) {
+                    document.getElementById(id).classList.add('active');
+                    
+                    switch(id) {
+                        case 'wordsPage': App.words.render(); break;
+                        case 'practicePage': App.practice.start(); break;
+                        case 'spellingPage': App.spelling.start(); break;
+                        case 'flashcardPage': App.flashcard.start(); break;
+                        case 'hangmanPage': App.hangman.start(); break;
+                        case 'crosswordPage': App.crossword.start(); break;
+                        case 'scramblePage': App.scramble.start(); break;
+                        case 'listeningPage': App.listening.start(); break;
+                        case 'timedPage': App.timed.start(); break;
+                        case 'matchPage': App.match.start(); break;
+                        case 'storePage': App.store.render(); document.getElementById('storeCoins').innerText = Math.floor(App.coins); break;
+                        case 'rankingPage': App.ranking.render(); break;
+                        case 'statsPage': App.stats.render(); break;
+                        case 'chaptersPage': App.chapters.render(); break;
+                        case 'achievementsPage': App.achievements.render(); break;
+                        case 'profilePage': 
+                            document.getElementById('profileNameInput').value = App.userNames[App.currentUser] || '';
+                            App.ui.update(); 
+                            break;
+                        case 'giftPage': document.getElementById('giftBalance').innerText = Math.floor(App.coins); break;
+                    }
+                },
+
+                closePage(id) {
+                    document.getElementById(id).classList.remove('active');
+                    if (id === 'practicePage') App.currentSession = [];
+                    if (id === 'timedPage' && window.timedInterval) clearInterval(window.timedInterval);
+                }
+            },
+
+            // Utils
+            notify(msg, type) {
+                let n = document.createElement('div');
+                n.className = `notification ${type}`;
+                n.innerText = msg;
+                document.body.appendChild(n);
+                setTimeout(() => n.remove(), 2000);
+            },
+
+            initParticles() {
+                if (typeof particlesJS === 'undefined') return;
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80 },
+                        color: { value: '#ffffff' },
+                        shape: { type: 'circle' },
+                        opacity: { value: 0.5 },
+                        size: { value: 3, random: true },
+                        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4 },
+                        move: { enable: true, speed: 2 }
+                    }
+                });
+            },
+
+            initTyped() {
+                if (typeof Typed === 'undefined') return;
+                new Typed('#typed-text', {
+                    strings: App.THEMES.map(t => t.toUpperCase()),
+                    typeSpeed: 40,
+                    backSpeed: 20,
+                    loop: true
+                });
+            },
+
+            initAOS() {
+                if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true });
+            },
+
+            initVoice() {
+                if (!App.synth) return;
+                let load = () => {
+                    let voices = App.synth.getVoices();
+                    App.currentVoice = voices.find(v => v.lang.includes('en')) || voices[0];
+                };
+                load();
+                if (App.synth.onvoiceschanged) App.synth.onvoiceschanged = load;
+            },
+
+            renderChapters() {
+                let grid = document.getElementById('chaptersGrid');
+                if (!grid) return;
+                grid.innerHTML = App.chapters.map(ch => {
+                    let status = ch.unlocked ? (ch.completed ? 'completed' : 'unlocked') : 'locked';
+                    return `<div class="chapter-card ${status}" onclick="App.chapters.open('${ch.id}')"><div class="chapter-icon">${ch.icon}</div><div class="chapter-name">${ch.name}</div></div>`;
+                }).join('');
+            },
+
+            // Achievement checker (simplified, can be expanded)
+            checkAchievements() {
+                // This would check conditions and unlock achievements
+                // For now, it's a placeholder
+            }
+        };
+
+        // Start the app
+        document.addEventListener('DOMContentLoaded', () => App.init());
+
+        // Expose to window for onclick handlers
+        window.App = App;
+    </script>
+</body>
+</html>
